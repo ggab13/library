@@ -1,0 +1,428 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  color: #050505;
+  background-color: black;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: -webkit-gradient(linear, left top, right top, from(#88befc), to(#ecd8c1));
+  background: linear-gradient(to right, #88befc, #ecd8c1);
+  width: 100%;
+  border-bottom: 4px solid white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .logo-container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(360deg) brightness(100%) contrast(95%);
+          filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(360deg) brightness(100%) contrast(95%);
+  margin: 0 3rem;
+}
+
+header .logo-container img {
+  width: 200px;
+  -webkit-filter: drop-shadow(0px 3px 3px white);
+          filter: drop-shadow(0px 3px 3px white);
+}
+
+header .logo-container img:hover {
+  -webkit-filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(180deg) brightness(100%) contrast(95%) drop-shadow(0px 3px 3px #0e0e0e);
+          filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(180deg) brightness(100%) contrast(95%) drop-shadow(0px 3px 3px #0e0e0e);
+}
+
+header h1 {
+  font-size: 5rem;
+  -webkit-box-flex: 7;
+      -ms-flex: 7;
+          flex: 7;
+  padding-left: 3rem;
+}
+
+header .stored-books {
+  bottom: 0;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  font-size: 2rem;
+  color: #88befc;
+}
+
+header .stored-books .counter {
+  display: inline;
+  color: black;
+  font-size: 2rem;
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+}
+
+.info {
+  position: absolute;
+  font-size: 36px;
+  bottom: 50px;
+  left: 50px;
+  color: #f31313;
+  -webkit-animation: alertAnimation 5s;
+          animation: alertAnimation 5s;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+main .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0rem 3rem 0rem 4rem;
+}
+
+main #addSection {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  height: 570px;
+  padding: 2rem;
+  margin-top: 4rem;
+  border: 4px solid #88befc;
+  border-radius: 15px;
+  background-color: #fcc688;
+  text-align: center;
+}
+
+main #addSection label {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+main #addSection h2 {
+  color: #88befc;
+  font-size: 2.5rem;
+  -webkit-filter: drop-shadow(1px 1px 1px black);
+          filter: drop-shadow(1px 1px 1px black);
+}
+
+main #addSection button {
+  margin-top: 2rem;
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: #88befc;
+  color: #fcc688;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
+main #addSection button:hover {
+  color: white;
+  border: 2px solid black;
+}
+
+main #addSection button:active {
+  -webkit-animation: buttonClick 0.5s;
+          animation: buttonClick 0.5s;
+}
+
+main #addSection input {
+  border-radius: 15px;
+  height: 40px;
+  width: 300px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+main #addSection #read {
+  position: relative;
+  width: 60px;
+  height: 25px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: #c6c6c6;
+  outline: none;
+  border-radius: 20px;
+  margin-right: 1rem;
+  -webkit-box-shadow: inset(0 0 5px rgba(0, 0, 0, 0.2));
+          box-shadow: inset(0 0 5px rgba(0, 0, 0, 0.2));
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+main #addSection #read:checked {
+  background: #88befc;
+}
+
+main #addSection #read::before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  background: #fff;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 0.2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0.2px 5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+main #addSection #read:checked:before {
+  left: 40px;
+}
+
+main .book-list:last-of-type {
+  -webkit-animation: bookShowup 1s 1;
+          animation: bookShowup 1s 1;
+}
+
+main #displaySection {
+  -webkit-box-flex: 9;
+      -ms-flex: 9;
+          flex: 9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 5px;
+  margin: 0 75px 0px 75px;
+  -webkit-animation: bookShowup 3s;
+          animation: bookShowup 3s;
+  white-space: initial;
+}
+
+main #displaySection .book-list {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 25px 25px 25px 25px;
+  -ms-flex-preferred-size: 28%;
+      flex-basis: 28%;
+  width: 400px;
+  height: 300px;
+  background-color: #fcc688;
+  border: 5px solid white;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+main #displaySection .book-list h3 {
+  color: #88befc;
+  -webkit-filter: drop-shadow(1px 1px 1px black);
+          filter: drop-shadow(1px 1px 1px black);
+  font-size: 1.6rem;
+  display: inline-block;
+}
+
+main #displaySection .book-list p {
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+main #displaySection .book-list .black {
+  font-size: 1.2rem;
+  color: white;
+  font-style: italic;
+}
+
+main #displaySection .book-list .delete {
+  background-color: transparent;
+  /* make the button transparent */
+  border: none;
+  /* assuming we don't want any borders */
+  cursor: pointer;
+  /* make the cursor like hovering over an <a> element */
+}
+
+main #displaySection .book-list .delete img:hover {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+main #displaySection .book-list > * {
+  padding: 0.2rem 0;
+}
+
+footer #ggab13 {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+footer #ggab13 a {
+  text-decoration: none;
+  color: white;
+}
+
+footer #ggab13 a:hover {
+  color: #88befc;
+}
+
+footer #ggab13 #valsz {
+  color: #fcc688;
+}
+
+footer #ggab13 img {
+  width: 50px;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+footer .stack img {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  margin-right: -150px;
+  z-index: -1;
+  width: 22%;
+  height: auto;
+  overflow: hidden;
+  opacity: 0.5;
+  -webkit-filter: drop-shadow(2px 2px 2px #fcc688);
+          filter: drop-shadow(2px 2px 2px #fcc688);
+  -webkit-animation: slideIn 5s;
+          animation: slideIn 5s;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+@-webkit-keyframes slideIn {
+  from {
+    opacity: 0;
+    right: -75px;
+  }
+  to {
+    opacity: 0.5;
+    right: 25px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    right: -75px;
+  }
+  to {
+    opacity: 0.5;
+    right: 25px;
+  }
+}
+
+@-webkit-keyframes alertAnimation {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes alertAnimation {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@-webkit-keyframes buttonClick {
+  0% {
+    width: 100px;
+    height: 40px;
+  }
+  50% {
+    width: 90px;
+    height: 35px;
+  }
+  100% {
+    width: 100px;
+    height: 40px;
+  }
+}
+
+@keyframes buttonClick {
+  0% {
+    width: 100px;
+    height: 40px;
+  }
+  50% {
+    width: 90px;
+    height: 35px;
+  }
+  100% {
+    width: 100px;
+    height: 40px;
+  }
+}
+
+@-webkit-keyframes bookShowup {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bookShowup {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.alert {
+  border: 1px solid red;
+}
+/*# sourceMappingURL=style.css.map */

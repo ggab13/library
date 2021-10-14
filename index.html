@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html"> <img src="images/logo.png" alt=""></a>
+
+        </div>
+        <h1>Library</h1>
+
+        <div class="stored-books">
+            <p>Books Stored: <span class="counter" data-target="10000">  0</span> </p>
+               
+        </div>
+                
+       
+    </header>
+    <main>
+        <div class="content">
+
+            <!-- Place of Errors-->
+
+            <div id="addSection">
+                <h2>New book</h2>
+                <form action="" id="add-form">
+                    <label for="author">Author:</label><br>
+                    <input type="text" id="author" name="author"><br>
+                    <label for="title">Title:</label><br>
+                    <input type="text" id="title" name="title"><br><br>
+                    <label for="pages">Pages:</label><br>
+                    <input type="number" id="pages" name="pages"><br><br>
+                    <label for="isbn">ISBN:</label><br>
+                    <input type="number" id="isbn" name="isbn"><br><br>
+                    <input type="checkbox" id="read" name="read">
+                    <label for="read"> Read (N/Y)</label><br>
+                    <button type="submit" id="addButton">Add</button>
+                </form>
+            </div>
+            <div id="displaySection">
+
+            </div>
+
+
+        </div>
+    </main>
+    <footer>
+        <h2 id="ggab13">Created by <span id="valsz">|</span> <a href="https://github.com/ggab13">ggab13</a> <img
+                src="images/github.png" alt=""></h2>
+        <div class="stack"><img src="images/stack.png" alt=""></div>
+    </footer>
+
+    <script src="apptest.js"></script>
+</body>
+
+</html>

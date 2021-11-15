@@ -6,17 +6,8 @@ const read = document.getElementById('read')
 const isbn = document.getElementById('isbn')
 const content = document.querySelector('.content')
 const addSection = document.getElementById('addSection')
-
 let deleteButton = document.querySelectorAll('.delete')
 let bookNumber;
-
-
-
-
-
-
-
-
 
 // Book ClassW
 class Book {
@@ -29,23 +20,14 @@ class Book {
     }
 }
 
-
 //UI Class
 class UI {
-    static displayBooks() {
-        
-        const books = Store.getBooks()
-       
-   
-       
-    
+    static displayBooks() {        
+        const books = Store.getBooks()            
         books.forEach((book) => UI.addBookToList(book))
-
     }
-    
-    static addBookToList(book) {
-
-        
+	
+    static addBookToList(book) {        
         displaySection.innerHTML +=
             `<div class="book-list" data-isbn="${book.isbn}">                       
             <h3>Author: ${book.author}</h3>
@@ -54,9 +36,7 @@ class UI {
             <p>ISBN: <span class="black">${book.isbn}</span></p>  
             <p>Read:<span class="black"> ${book.read}</span></p>   
             <button class="delete"><img src="images/trash.png" width="60px" height="60px" alt="submit" /></button>        
-         </div>`
-
-         
+         </div>`         
     }
 
     static deleteBook(element) {
@@ -66,13 +46,11 @@ class UI {
     }
 
     static clearFields() {
-
         author.value = ''
         title.value = ''
         pages.value = ''
         isbn.value = ''
         read.value = ''
-
     }
 
     static showAlert(message) {
@@ -80,36 +58,27 @@ class UI {
         div.classList.add('info')
         div.appendChild(document.createTextNode(message))
         content.insertBefore(div, addSection)
-
-
         // Text vanishes in 3 sec
         setTimeout(() => div.remove(), 3000)
     }
 }
-
 
 //Store Class: Locale Storage
 class Store {
     static getBooks() {
         let books
         if (localStorage.getItem('books') === null) {
-
             books = [];
         } else {
             books = JSON.parse(localStorage.getItem('books'));
         }
-
         return books
     }
 
     static addBook(book) {
-
-
         const books = Store.getBooks()
         books.push(book)
-        localStorage.setItem('books', JSON.stringify(books))
-        
-
+        localStorage.setItem('books', JSON.stringify(books))       
     }
 
     static removeBook(isbn) {
@@ -120,24 +89,18 @@ class Store {
                 books.splice(index, 1)
             }
         })
-
         localStorage.setItem('books', JSON.stringify(books))
     }
-
 }
-
 
 bookNumber = Store.getBooks().length;
 console.log(bookNumber)
-
 
 //Event: Display Books
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
 //Event: Add Books
 const addForm = document.getElementById('add-form')
-
-
 
 addForm.addEventListener('submit', (e) => {
     // Prevent actual submit
@@ -157,18 +120,13 @@ addForm.addEventListener('submit', (e) => {
     const newIsbn = isbn.value
     const newRead = reads;
 
-
-
-
     // Validate
     if (newAuthor === '' || newTitle === '' || newPages === '' || newIsbn === '') {
         UI.showAlert('Please fill in all fields')
     } else {
-
         const books = Store.getBooks();
 
         if (books.length == 0) {
-
             //Add new book            
             const book = new Book(newAuthor, newTitle, newPages, newIsbn, newRead)
 
@@ -188,7 +146,6 @@ addForm.addEventListener('submit', (e) => {
             
 
         } else {
-
             let logika;
             books.forEach((book, index) => {
                 if (book.isbn == newIsbn) {
@@ -236,11 +193,9 @@ addForm.addEventListener('submit', (e) => {
 
 //Event: Remove Book
 displaySection.addEventListener('click', (e) => {
-
     console.log(e.target.parentElement)
 
     const isButton = e.target.parentElement.nodeName === 'BUTTON';
-
 
     if (!isButton) {
         return;
@@ -261,8 +216,7 @@ displaySection.addEventListener('click', (e) => {
 const counters = document.querySelectorAll('.counter');
 const speed = 700; // The lower the slower
 counting()
-function counting () {
-    
+function counting () {    
 
 counters.forEach(counter => {
 	const updateCount = () => {
@@ -289,96 +243,4 @@ counters.forEach(counter => {
 
     updateCount();
 });
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-let addAuthor,addTitle,addPages,addRead
-
-function Book(author, title, pages, read) {
-    this.author = author
-    this.title = title
-    this.pages = pages
-    this.read = read
-}
-
-
-
-
-addButton.addEventListener("click", () => {
-       // let newBook = new Book(addAuthor.value,addTitle.value,addPages.value,addButton.value);
-        console.log(addAuthor.value,addTitle.value,addPages.value,addRead.value)
-        displayLibrary();
-  });
-
-
-
-
-
-
-
-myLibrary.push(book1,book2)
-
-const display = () => {
-for (let index = 0; index < myLibrary.length; index++) {
-    "<p>Fasasz</p>"
-}}
-
-
-displayLibrary();
-
-function displayLibrary() {
-    myLibrary.forEach(book => {
-        displaySection.innerHTML +=
-        `<div class="test">
-            <button>Edit</button>
-            <button>Delete</button>
-            <h3>${book.author}Author</h3>
-            <p>${book.title}Title</p>
-            <p>${book.pages}Pages</p>
-            <p>${book.read}Read:</p>
-         </div>`
-    })
-}
-
-
-*/
